@@ -1,5 +1,6 @@
 package li.zhuoyuan.cizhi.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,7 +12,7 @@ import li.zhuoyuan.cizhi.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView tvtitle;
+    private TextView tvtitle, login;
     private LinearLayout leftbtn, rightbtn;
 
     @Override
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initEvent() {
         leftbtn.setOnClickListener(this);
         rightbtn.setOnClickListener(this);
+        login.setOnClickListener(this);
     }
 
     private void initView() {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rightbtn = (LinearLayout) findViewById(R.id.rightbtn);
         tvtitle = (TextView) findViewById(R.id.title);
         tvtitle.setText(R.string.app_name);
+        login = (TextView) findViewById(R.id.login);
     }
 
 
@@ -45,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.rightbtn:
                 Toast.makeText(MainActivity.this, "right", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.login:
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
             default:
                 break;
         }
